@@ -8,8 +8,8 @@ const main = (): void => {
   const R1: Rational = new Rational(6, 4);
   const R2: Rational = R1.normalize();
   const R3: Rational = new Rational(12, 4);
-  const R4: Rational = Rational._parseRational(["1", "3"], ["4", "1"]);
-  const R5: Rational = Rational.parseRational("43/23");
+  const R4: Rational = Rational.parseRational(["1", "3"], ["4", "1"]);
+  const R5: Rational = Rational.parseRationalFromString("43/23");
 
   // 打印物件
   console.log(`R1 : ${R1.toString()}`);
@@ -18,7 +18,7 @@ const main = (): void => {
   console.log();
 
   // 檢測相等
-  console.log(`R1.equals(R2) : ${R1.equals(R2)}`);
+  console.log(`R1.equals(R2) : ${R1.equalsRational(R2)}`);
   // 檢測整數
   console.log(`R1.isWhole() : ${R1.isWhole()}`);
   // 檢測有無小數
@@ -26,7 +26,7 @@ const main = (): void => {
   console.log();
 
   // 檢測相等
-  console.log(`R1.equals(R3) : ${R1.equals(R3)}`);
+  console.log(`R1.equals(R3) : ${R1.equalsRational(R3)}`);
   // 檢測整數
   console.log(`R3.isWhole() : ${R3.isWhole()}`);
   // 檢測有無小數

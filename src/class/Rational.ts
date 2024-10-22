@@ -76,7 +76,21 @@ export class Rational {
 
     // 解析包含 '/' 的字串為 Rational 物件
     static parseRationalFromString(rationalStr: string): Rational {
-        const [num, denom] = rationalStr.split('/').map(Number);
+        const parts = rationalStr.split('/').map(Number);
+    
+        // 確認 parts 是一個包含兩個數字的陣列
+        if (!Array.isArray(parts) || parts.length !== 2) {
+            throw new Error("Invalid rational format. Expected format: 'numerator/denominator'");
+        }
+    
+        const num = parts[0];
+        const denom = parts[1];
+    
+        // 檢查轉換結果，並確保分母不為0
+        if (isNaN(num) || isNaN(denom) || denom === 0) {
+            throw new Error("Invalid numbers or denominator is zero");
+        }
+    
         return new Rational(num, denom);
-    }
+    }    
 }
